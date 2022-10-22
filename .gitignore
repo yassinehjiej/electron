@@ -12,6 +12,7 @@
 # production
 /build
 /out
+/public/backend/node_modules
 
 # misc
 .DS_Store

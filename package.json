@@ -7,12 +7,16 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "antd": "^4.23.6",
     "concurrently": "^7.4.0",
     "cross-env": "^7.0.3",
     "electron-squirrel-startup": "^1.0.0",
+    "mongodb": "^4.11.0",
+    "mongoose": "^6.6.6",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2",
     "react-redux": "^8.0.4",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
@@ -22,7 +26,7 @@
   "main": "public/main.js",
   "homepage": "./",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -56,7 +60,9 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.67",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.67",
     "@electron-forge/maker-zip": "^6.0.0-beta.67",
-    "electron": "^21.1.1"
+    "electron": "^21.1.1",
+    "tailwindcss": "^3.2.0",
+    "tailwindcss-pseudo-elements": "^2.0.0"
   },
   "config": {
     "forge": {
