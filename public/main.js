@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+const backend = require('./backend')
 
 require('@electron/remote/main').initialize()
 
@@ -7,14 +8,17 @@ function createWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-            enableRemoteModule: true
+            enableRemoteModule: true,
+            nodeIntegration: true
         }
     })
 
     win.loadFile('build/index.html')
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+    () => backend;
+    createWindow})
 
 app.on('window-all-closed', function() {
     if(process.platform !== 'darwin') {
