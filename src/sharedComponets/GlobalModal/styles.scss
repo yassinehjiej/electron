@@ -1,0 +1,31 @@
+.ant-modal.global-modal{
+    .ant-modal-content{
+        border-radius: 15px;
+        .ant-modal-header{
+            border-radius: 15px;
+            .ant-modal-title{
+                font-weight: 700;
+                font-size: larger;
+                }
+        }
+        .ant-modal-footer{
+            .ant-btn.ant-btn-default{
+                border-radius: 7px;
+            }
+            .ant-btn.ant-btn-primary{
+                border-radius: 7px;
+                background-color: #001529;
+                border: #001529;
+                color: white;
+                &:hover{
+                    background-color: #0467c4;
+                }
+            }
+        }
+    }
+}
+.ant-modal-root{
+    .ant-modal-wrap{
+        overflow: hidden;
+    }
+}

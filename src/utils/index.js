@@ -1,4 +1,5 @@
 import { DeleteOutlined, EditOutlined, SearchOutlined, SyncOutlined, PlusOutlined } from '@ant-design/icons';
+import ManageClient from '../pages/ClientsPage/components/ManageClient';
 
 export function getIcon(type){
     const iconsList = Object.freeze({
@@ -20,4 +21,25 @@ export function getIcon(type){
 
     }) 
     return iconsList[type];
+}
+
+export const Modals = {
+    ADD: {
+    title:'Ajouter patient',
+    content: <ManageClient isNew/>,
+    footer: false,
+    width: '500px'
+    },
+    EDIT: {
+    title:'Modifier patient',
+    content: <ManageClient />,
+    footer: false,
+    width: '500px'
+    },
+    DELETE: {
+        title:'Supprimer patient',
+        okText:'Oui',
+        cancelText:'Non',
+        content: 'Etes-vous sur de vouloir supprimer ce patient'
+        },
 }

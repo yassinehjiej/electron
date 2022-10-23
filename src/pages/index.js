@@ -11,7 +11,7 @@ export default function ProtectedApp() {
 
     return(
         <AntLayout>
-            <AntLayout.Sider className="bg-primary fixed w-20"           
+            <AntLayout.Sider className="bg-primary fixed h-[100vh] w-20"           
             collapsible
             trigger={<SiderCollapseIcon rotate={rotated ? 180 : 0} />}
             onCollapse={setRotated}
@@ -30,7 +30,7 @@ export default function ProtectedApp() {
 function AppRouting() {
     return (
       <Routes>
-          <Route key='/clients' path='/clients' element={<ClientsPage />} />
+          <Route key='/' path='/' element={<ClientsPage />} />
           <Route key='/config' path='/config' element={<div>config Page</div>} />
       </Routes>
     );
