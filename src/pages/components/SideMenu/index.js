@@ -6,7 +6,7 @@ const menuItems = [
     {
         title: 'Mes Clients',
         icon: TeamOutlined ,
-        path: '/clients',
+        path: '/',
         key: 'clients',
     },
     {
