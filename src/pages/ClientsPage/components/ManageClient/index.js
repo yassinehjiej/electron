@@ -1,5 +1,6 @@
 import { Button, DatePicker, Form, Input, Radio, Select } from "antd";
 import React from "react";
+import FormRules from "../../../../utils/FormRules";
 import './styles.scss';
 
 export default function ManageClient({isNew}){
@@ -16,21 +17,21 @@ export default function ManageClient({isNew}){
             <Form.Item
                 label="Nom"
                 name="lastName"
-                rules={[{ required: true }]}
+                rules={[FormRules.required(), FormRules.name()]}
             >
                 <Input placeholder="Nom"/>
             </Form.Item>
             <Form.Item
                 label="Prenom"
                 name="firstName"
-                rules={[{ required: true}]}
+                rules={[FormRules.required(), FormRules.name()]}
             >
                 <Input placeholder="Prenom"/>
             </Form.Item>
             <Form.Item
                 label="Sex"
                 name="gender"
-                rules={[{ required: true}]}
+                rules={[FormRules.required()]}
             >
                 <Radio.Group >
                 <Radio value='female'>Femme</Radio>
@@ -40,40 +41,42 @@ export default function ManageClient({isNew}){
             <Form.Item
                 label="CIN"
                 name="cin"
-                rules={[{ required: true}]}
+                rules={[FormRules.required()]}
             >
                 <Input placeholder="CIN"/>
             </Form.Item>
             <Form.Item
                 label="Annee de naissance"
                 name="birthDay"
-                rules={[{ required: true}]}
+                rules={[FormRules.required()]}
             >
                 <DatePicker placeholder="Annee de naissance"/>
             </Form.Item>
             <Form.Item
                 label="Telephone"
                 name="phone"
-                rules={[{ required: true}]}
+                rules={[FormRules.required(), FormRules.phone]}
             >
                 <Input placeholder="Telephone"/>
             </Form.Item>
             <Form.Item
                 label="Adresse"
                 name="adresse"
+                rules={[FormRules.address]}
             >
                 <Input placeholder="Adresse"/>
             </Form.Item>
             <Form.Item
                 label="Ville"
                 name="city"
+                rules={[FormRules.alphanumeric()]}
             >
                 <Input placeholder="Ville"/>
             </Form.Item>
             <Form.Item
                 label="Type sanguin"
                 name="blood"
-                rules={[{ required: true }]}
+                rules={[FormRules.required()]}
             >
                 <Select placeholder='Type sanguin'
                     >
@@ -87,8 +90,8 @@ export default function ManageClient({isNew}){
                 <Form.Item
                     label="Derniere visite"
                     name="consult"
-                    rules={[{ required: true }]}
-                >
+                    rules={[FormRules.required()]}
+                    >
                     <DatePicker placeholder="Derniere visite"/>
                 </Form.Item>
             }
