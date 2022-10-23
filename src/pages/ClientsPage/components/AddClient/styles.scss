@@ -1,0 +1,14 @@
+.btn-add{
+    border-radius: 7px;
+    background: green;
+    height: 37px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        background: rgb(90, 216, 90);
+        border: 0px;
+        color: white;
+    }
+}

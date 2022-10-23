@@ -1,0 +1,31 @@
+.clients-table{
+    .ant-spin-nested-loading{
+        .ant-spin-container{
+            .ant-table.ant-table-ping-right.ant-table-scroll-horizontal{
+                .ant-table-container{
+                    .ant-table-content{
+                        .ant-table-thead{
+                            tr{
+                                th.ant-table-cell{
+                                    color: #456ed8;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        .ant-table-tbody{
+                            .ant-table-cell{
+                                color: #001529;
+                                font-size: small;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.ant-table-thead>tr>th{
+    color: #456ed8;
+    font-weight: bold;
+
+}
