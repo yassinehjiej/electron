@@ -23,7 +23,7 @@ export function getIcon(type){
     return iconsList[type];
 }
 
-export const Modals = {
+export const Modals = Object.freeze({
     ADD: {
     title:'Ajouter patient',
     content: <ManageClient isNew/>,
@@ -42,4 +42,4 @@ export const Modals = {
         cancelText:'Non',
         content: 'Etes-vous sur de vouloir supprimer ce patient'
         },
-}
+});
