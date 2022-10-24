@@ -52,12 +52,12 @@ const getColumns = () => {
 
 export default function ClientsTable({data}){
     return(
-        <div className="w-full flex justify-center items-center bg-white rounded-2xl p-4">
+        <div className="w-full flex justify-center items-center bg-white rounded-2xl p-4 ">
             <Table 
             columns={getColumns()}
             dataSource={data}
             scroll={{x: 1000, y:370}}
-            rowKey={({id})=> id}
+            rowKey={(element)=>{ return element._id }}
             pagination={false}
             className="clients-table font-sans"
             />
