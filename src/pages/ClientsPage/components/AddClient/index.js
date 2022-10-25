@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React, { useState } from "react";
-import GlobalModal from "../../../../sharedComponets/GlobalModal";
-import { getIcon, Modals } from "../../../../utils";
+import CustomModal from "../../../../sharedComponets/CustomModal";
+import { getIcon } from "../../../../utils";
 import './styles.scss';
 
 export default function AddClient(){
@@ -20,17 +20,11 @@ export default function AddClient(){
         <Button className="btn-add" onClick={() => { openHandler(); } }>
             <addIcon.icon />
         </Button>
-        <GlobalModal
-            title={Modals.ADD.title}
+        <CustomModal 
             open={isvisible}
             onCancel={cancelHandler}
-            okText={Modals.ADD.okText}
-            cancelText={Modals.ADD.cancelText}
-            footer={Modals.ADD.footer}
-            width={Modals.ADD.width}
-        >
-                {Modals.ADD.content}
-        </GlobalModal>
+            type='ADD'
+        />
         </>
     );
 }

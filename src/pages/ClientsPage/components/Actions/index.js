@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React, { useState } from "react";
-import GlobalModal from "../../../../sharedComponets/GlobalModal";
-import { getIcon, Modals } from "../../../../utils";
+import CustomModal from "../../../../sharedComponets/CustomModal";
+import { getIcon } from "../../../../utils";
 import { EMPTY_STRING } from "../../../../utils/Constant";
 import './styles.scss';
 
@@ -35,17 +35,11 @@ export default  function Actions() {
             className="btn-delete"
             />
         {isvisible && 
-            <GlobalModal 
-             title={Modals[selectedModal].title}
-             open={isvisible}
-             onCancel={cancelHandler}
-             okText={Modals[selectedModal].okText}
-             cancelText={Modals[selectedModal].cancelText}
-             footer={Modals[selectedModal].footer}
-             width={Modals[selectedModal].width}
-            >
-             {Modals[selectedModal].content}
-            </GlobalModal>
+            <CustomModal 
+            open={isvisible}
+            onCancel={cancelHandler}
+            type={selectedModal}
+            />
         }
         </div>
     );

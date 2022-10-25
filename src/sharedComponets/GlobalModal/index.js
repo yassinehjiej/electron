@@ -8,6 +8,7 @@ export default function GlobalModal({ open, children, width = '450px', ...rest }
         width={width}
         className="global-modal"
         {...rest}
+        footer={false}
         open={open}
         >
             {children}
