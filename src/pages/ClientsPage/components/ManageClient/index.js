@@ -3,7 +3,7 @@ import React from "react";
 import FormRules from "../../../../utils/FormRules";
 import './styles.scss';
 
-export default function ManageClient({isNew}){
+export default function ManageClient({isNew, cancelHandler}){
     const [form] = Form.useForm();
     const { Option } = Select;
 
@@ -97,7 +97,7 @@ export default function ManageClient({isNew}){
             }
 
             <div className="flex justify-end mt-6">
-          <Button className="w-52 min-w-min mr-2.5 form-btn">
+          <Button className="w-52 min-w-min mr-2.5 form-btn" onClick={cancelHandler}>
             Annuler
           </Button>
           <Button
