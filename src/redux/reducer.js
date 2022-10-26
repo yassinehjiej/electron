@@ -16,5 +16,12 @@ export default function reducer(state = [], action) {
     //     }
     // }
 
+    if(action.type === "addClients") {
+            return {
+                ...state,
+                clients: action.payload.clients
+            }
+        }
+
     return state;
 }

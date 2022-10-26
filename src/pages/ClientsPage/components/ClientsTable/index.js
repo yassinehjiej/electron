@@ -23,7 +23,7 @@ const getColumns = () => {
         {
             title: 'Date de naissance',
             dataIndex: 'birthday',
-            key: 'birthday',
+            key: 'birthday'
         },
         {
             title: 'Ville',
@@ -33,8 +33,8 @@ const getColumns = () => {
         },
         {
             title: 'Derniere visite',
-            dataIndex: 'birthday',
-            key: 'birthday',
+            dataIndex: 'lastVisit',
+            key: 'lastVisit'
         },
         {
             title: 'Actions',
@@ -42,8 +42,8 @@ const getColumns = () => {
             key: 'action',
             fixed: 'right',
             width: 90,
-            render: () => (
-                <Actions />
+            render: (element) => (
+                <Actions element={element}/>
             )
         },
     ];

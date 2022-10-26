@@ -2,7 +2,7 @@ const Client = require('../database/schemas/client');
 
 class ClientDao {
     async registerClient (body) {
-        const {name, cin, organizationName, phone, address, city, birthday, gender, description} = body;console.log(body)
+        const {name, cin, organizationName, phone, address, city, birthday, gender, description, blood, lastVisit} = body;
         const checkClient = await Client.findOne({cin: cin});console.log(checkClient)
         if(checkClient) {throw 'client already exist'}
         const client = new Client({
@@ -15,7 +15,8 @@ class ClientDao {
             description,
             blood,
             city,
-            birthday
+            birthday,
+            lastVisit
             });
         
         const result = await client.save();
@@ -24,8 +25,8 @@ class ClientDao {
     }
 
     async updateClient (body) {
-        const {name, cin, organizationName, phone, address, city, birthday} = body;
-        const result = await Client.findOneAndUpdate({cin: cin}, {
+        const {name, cin, organizationName, phone, address, city, birthday, gender, description, blood, lastVisit} = body;
+        const result = await Client.findOneAndUpdate({cin: cin},{
             name,
             cin,
             organizationName,
@@ -36,8 +37,10 @@ class ClientDao {
             blood,
             city,
             birthday,
+            lastVisit,
             updatedAt: Date.now()
-        }, { new: true })
+            } 
+            , { new: true })
 
         return result;
     }
