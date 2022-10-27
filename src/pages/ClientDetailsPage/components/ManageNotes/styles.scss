@@ -1,0 +1,40 @@
+.btn-add-note{
+    border-radius: 7px;
+    background: green;
+    height: 37px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        background: rgb(90, 216, 90);
+        border: 0px;
+        color: white;
+    }
+}
+
+.btn-edit:hover{
+    border-color: orange;
+}
+.btn-delete:hover{
+    border-color: red;
+}
+
+.ant-form.ant-form-horizontal.add-note-form{
+    width: 100%;
+    .ant-input-textarea.ant-input-textarea-show-count{
+        .ant-input{
+            border-radius: 7px;
+        }
+    }
+    .note-form-btn{
+        background-color: #001529;
+        border: #001529;
+        color: white;
+        &:hover{
+            background-color: #0467c4;
+        }
+        height: 40px;
+        border-radius: 7px;
+        }
+}

@@ -1,5 +1,6 @@
 import { Table } from "antd";
 import React from "react";
+import DateFormatter from "../../../../utils/DateFormatter";
 import Actions from "../Actions";
 import './styles.scss';
 
@@ -24,6 +25,7 @@ const getColumns = () => {
             title: 'Date de naissance',
             dataIndex: 'birthday',
             key: 'birthday',
+            render: (date) => (<DateFormatter date={date}/> )
         },
         {
             title: 'Ville',
@@ -33,8 +35,9 @@ const getColumns = () => {
         },
         {
             title: 'Derniere visite',
-            dataIndex: 'birthday',
-            key: 'birthday',
+            dataIndex: 'lastVisit',
+            key: 'lastVisit',
+            render: (date) => (<DateFormatter date={date}/> )
         },
         {
             title: 'Actions',

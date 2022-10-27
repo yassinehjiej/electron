@@ -5,13 +5,14 @@ import { Route, Routes } from "react-router-dom";
 import SiderCollapseIcon from "./components/SiderCollapseIcon";
 import ClientsPage from "./ClientsPage";
 import './styles.scss';
+import ClientDetailsPage from "./ClientDetailsPage";
 
 export default function ProtectedApp() {
     const [rotated, setRotated] = useState(false);
 
     return(
         <AntLayout>
-            <AntLayout.Sider className="bg-primary fixed h-[100vh] w-20"           
+            <AntLayout.Sider className="bg-primary fixed w-20"           
             collapsible
             trigger={<SiderCollapseIcon rotate={rotated ? 180 : 0} />}
             onCollapse={setRotated}
@@ -32,6 +33,7 @@ function AppRouting() {
       <Routes>
           <Route key='/' path='/' element={<ClientsPage />} />
           <Route key='/config' path='/config' element={<div>config Page</div>} />
+          <Route key='/details' path='/details' element={<ClientDetailsPage />} />
       </Routes>
     );
   }

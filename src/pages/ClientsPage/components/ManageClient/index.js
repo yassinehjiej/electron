@@ -46,11 +46,11 @@ export default function ManageClient({isNew, cancelHandler}){
                 <Input placeholder="CIN"/>
             </Form.Item>
             <Form.Item
-                label="Annee de naissance"
+                label="Date de naissance"
                 name="birthDay"
                 rules={[FormRules.required()]}
             >
-                <DatePicker placeholder="Annee de naissance"/>
+                <DatePicker placeholder="Date de naissance"/>
             </Form.Item>
             <Form.Item
                 label="Telephone"

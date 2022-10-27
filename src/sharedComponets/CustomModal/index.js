@@ -8,12 +8,12 @@ export default function CustomModal({type, data, onCancel, ...rest}){
         ADD: {
         title:'Ajouter patient',
         content: <ManageClient isNew cancelHandler={onCancel}/>,
-        width: '700px'
+        width: '800px'
         },
         EDIT: {
         title:'Modifier patient',
         content: <ManageClient elem={data} cancelHandler={onCancel}/>,
-        width: '700px'
+        width: '800px'
         },
         DELETE: {
             title:'Supprimer patient',
