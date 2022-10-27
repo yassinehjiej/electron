@@ -1,5 +1,7 @@
 import { Table } from "antd";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import DateFormatter from "../../../../utils/DateFormatter";
 import Actions from "../Actions";
 import './styles.scss';
@@ -54,6 +56,9 @@ const getColumns = () => {
 };
 
 export default function ClientsTable({data}){
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     return(
         <div className="w-full flex justify-center items-center bg-white rounded-2xl p-4 ">
             <Table 
@@ -61,6 +66,14 @@ export default function ClientsTable({data}){
             dataSource={data}
             scroll={{x: 1000, y:370}}
             rowKey={(element)=>{ return element._id }}
+            onRow={(record) => {
+                return {
+                  onClick: () => {console.log(record);
+                    dispatch({type:"addDetails", payload:{details:record}});
+                    navigate('/details');
+                } 
+                };
+              }}            
             pagination={false}
             className="clients-table font-sans"
             />

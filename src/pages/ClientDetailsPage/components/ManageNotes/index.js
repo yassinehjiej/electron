@@ -1,8 +1,9 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useState } from "react";
 import CustomModal from "../../../../sharedComponets/CustomModal";
 import { getIcon } from "../../../../utils";
+import DateFormatter from "../../../../utils/DateFormatter";
 import './styles.scss';
 
 export default function ManageNotes({notes}){
@@ -30,10 +31,16 @@ export default function ManageNotes({notes}){
                 {notes.map((note) =>
                     <div className="px-7 flex flex-col w-full justify-between" key={note._id}>
                         <div className="font-bold font-sans text-base leading-6 flex items-center text-gray-500 mb-2 mt-5">
-                            {note.date}
+                          <DateFormatter date={note.date} className="font-bold font-sans text-base"/>
                         </div>
                         <div className="flex justify-between">
-                            <Input defaultValue={note.value} disabled={isReadOnly}/>
+                        <TextArea  
+                        autoSize={{ minRows: 3 }}
+                        placeholder="Votre commentaire"  
+                        defaultValue={note.value} 
+                        disabled={isReadOnly}
+                        className="note-input"
+                        />
                             <div className="flex">
                                 <Button 
                                 icon={ <deleteIcon.icon style={{ color: 'red' }}/>} 
@@ -52,9 +59,13 @@ export default function ManageNotes({notes}){
                 </div>
                 }
                 {isInputVisible &&
-                <Form className="add-note-form" form={form}
-                >
-                    <TextArea showCount placeholder="Votre commentaire"  style={{ height: 120 }}/>
+                <Form className="add-note-form" form={form}>
+                   <div className="pl-7 leading-6 flex items-center text-gray-500 mb-2 mt-5">
+                        <DateFormatter date={new Date()} className="font-bold font-sans text-base"/>
+                    </div>
+                    <div className="pl-7 pr-16 ">
+                        <TextArea showCount placeholder="Nouveau commentaire"  autoSize={{ minRows: 3 }}/>
+                    </div>
                     <div className="flex w-full justify-end">
                         <Button
                         key="submit"

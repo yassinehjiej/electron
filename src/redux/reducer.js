@@ -1,20 +1,4 @@
 export default function reducer(state = [], action) {
-    // Here is an example for how reducer works 
-    //
-    //
-    // 
-    // if(action.type === "addCurrentUser") {
-    //     return {
-    //         ...state,
-    //         currentUser: action.payload.currentUser
-    //     }
-    // }
-    // else if(action.type === "changeRoute") {
-    //     return {
-    //         ...state,
-    //         route: action.payload.route
-    //     }
-    // }
 
     if(action.type === "addClients") {
             return {
@@ -22,6 +6,13 @@ export default function reducer(state = [], action) {
                 clients: action.payload.clients
             }
         }
+
+    if(action.type === "addDetails") {
+        return {
+            ...state,
+            details: action.payload.details
+        }
+    }
 
     return state;
 }

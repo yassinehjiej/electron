@@ -46,7 +46,10 @@ export default function ManageClient({ isNew, cancelHandler, elem }) {
         .then(() => {getAllClients()
           .then((response) => { 
             dispatch({type:"addClients", payload:{clients:response}});
-          });cancelHandler(); message.success("Client ajouté avec success", 2)})
+          });
+          cancelHandler();
+           form.resetFields();
+           message.success("Client ajouté avec success", 2)})
         .catch(() => message.error("Une erreur est survenue"));
       
         return;
