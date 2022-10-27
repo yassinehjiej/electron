@@ -45,8 +45,8 @@ const getColumns = () => {
             key: 'action',
             fixed: 'right',
             width: 90,
-            render: () => (
-                <Actions />
+            render: (element) => (
+                <Actions element={element}/>
             )
         },
     ];

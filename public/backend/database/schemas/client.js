@@ -12,7 +12,8 @@ const clientSchema = mongoose.Schema({
     city: { type: String },
     createdAt: { type: Date, default: Date.now , required: true},
     updatedAt: { type: Date, default: Date.now },
-    birthday : { type: Date, required: true }
+    birthday : { type: Date, required: true },
+    lastVisit: { type: Date, required: true}
 })
 
 const Client = mongoose.model('Client', clientSchema);

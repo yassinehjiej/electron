@@ -1,25 +1,24 @@
 import { Button, Input } from "antd";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getIcon } from "../../utils";
 import AddClient from "./components/AddClient";
 import ClientsTable from "./components/ClientsTable";
 import "./styles.scss";
 import { getAllClients } from "../../service/service";
 
-
 export default function ClientsPage() {
-  const [data, setData] = useState(null);
+  const initialState = useSelector(state=>state?.clients);
+  const [d, updateD] = useState(initialState);
+  const dispatch =  useDispatch()
 
   useEffect(()=>{
-    getAllClients().then((response)=> setData(response))
-  }, []);
+    updateD(initialState)
+  }, [initialState])
 
-  const [d, updateD] = useState(data);
-  if (!data) return null;
-  
   const onChange = (value) => {
     const result = [
-      data.filter(
+      initialState.filter(
         (element) =>
           element.name.toLowerCase().includes(value.toLowerCase()) ||
           element.cin.toLowerCase().includes(value.toLowerCase()) ||
@@ -31,13 +30,18 @@ export default function ClientsPage() {
     updateD(result[0]);
   };
 
-  function refreshPage() {
-    window.location.reload(false);
+  const refresh = () => {
+      getAllClients()
+      .then((response) => dispatch({type:"addClients", payload:{clients:response}}))
   }
 
   const refreshIcon = getIcon("refresh");
   return (
     <div className="w-full p-8">
+      <div className="flex justify-end font-sans font-bold text-2xl underline mb-10 ">
+        Docteur Mohamed BAGHOULI
+      </div>
+      
       <div className="flex justify-start font-sans font-bold text-2xl mb-8">
         Liste des clients
       </div>
@@ -49,13 +53,13 @@ export default function ClientsPage() {
           onChange={(event) => onChange(event.target.value)}
         />
         <div className="flex">
-          <Button onClick={refreshPage} className="btn-refresh">
+          <Button  className="btn-refresh" onClick={refresh}>
             <refreshIcon.icon />
           </Button>
           <AddClient />
         </div>
       </div>
-      <ClientsTable data={d ?? data} />
+      <ClientsTable data={d ?? initialState} />
     </div>
   );
 }

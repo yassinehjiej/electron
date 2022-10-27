@@ -5,7 +5,7 @@ import { getIcon } from "../../../../utils";
 import { EMPTY_STRING } from "../../../../utils/Constant";
 import './styles.scss';
 
-export default  function Actions() {
+export default  function Actions({element}) {
     const [isvisible, setIsvisible] = useState(false);
     const [selectedModal, setSelectedModal] = useState(EMPTY_STRING);
 
@@ -39,6 +39,7 @@ export default  function Actions() {
             open={isvisible}
             onCancel={cancelHandler}
             type={selectedModal}
+            data={element}
             />
         }
         </div>
