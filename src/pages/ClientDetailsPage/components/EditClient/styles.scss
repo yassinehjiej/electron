@@ -1,0 +1,10 @@
+.btn-edit-details{
+    background-color: orange;
+    border-radius: 7px;
+    height: 45px;
+    width: 45px;
+    &:hover{
+        border-color: rgb(255, 212, 132);
+        background-color: rgb(255, 212, 132);
+    }
+}
