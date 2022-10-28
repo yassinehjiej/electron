@@ -4,7 +4,7 @@ import CustomModal from "../../../../sharedComponets/CustomModal";
 import { getIcon } from "../../../../utils";
 import './styles.scss';
 
-export default function EditClient(){
+export default function EditClient({element}){
     const [isvisible, setIsvisible] = useState(false);
 
     const cancelHandler = () => {
@@ -26,6 +26,7 @@ export default function EditClient(){
             open={isvisible}
             onCancel={cancelHandler}
             type='EDIT'
+            data={element}
             />
         </>
     );

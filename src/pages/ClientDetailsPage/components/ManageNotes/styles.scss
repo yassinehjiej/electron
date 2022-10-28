@@ -1,8 +1,10 @@
 .btn-add-note{
     border-radius: 7px;
+    z-index: 10;
     background: green;
-    height: 37px;
+    height: 40px;
     color: white;
+    padding: 4px 17px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,11 +15,25 @@
     }
 }
 
-.btn-edit:hover{
-    border-color: orange;
+.btn-edit-note{
+    height: 40px;
+    width: 40px;
+    background-color: orange;
+    color: white;
+    border-radius: 7px;
+&:hover{
+    border-color: rgb(236, 194, 116);
+    background-color: rgb(236, 194, 116);
+}}
+.btn-delete-note{
+    background-color: rgb(190, 2, 2);
+    height: 40px;
+    width: 40px;
+    border-radius: 7px;
+&:hover{
+    border-color: rgb(255, 128, 128);
+    background-color: rgb(255, 128, 128);
 }
-.btn-delete:hover{
-    border-color: red;
 }
 
 .ant-form.ant-form-horizontal.add-note-form{
@@ -39,7 +55,8 @@
         }
 }
 
-.ant-input-textarea.ant-input-textarea-show-count.note-input{
+.ant-input.note-input,
+.ant-input.note-input.ant-input-disabled{
     width: 100%;
-    margin-right: 5px;
+    border-radius: 7px;
 }

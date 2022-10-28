@@ -30,13 +30,13 @@ const data = {
 
 export default function ClientDetailsPage(){
     return(
-    <div className="w-full px-5 pt-5 pb-1 overflow-y-scroll h-[150vh]">
+    <div className="w-full px-5 pt-5 pb-1 h-[150vh]">
       <div className="flex justify-between">
       <div className="flex justify-start text-sans font-semibold text-3xl mt-3 ml-3 mb-8">
         {data?.gender === 'female' ? 'Madame ' : 'Monsieur '}&nbsp;
-         <span className="font-bold">{`${data?.name}`}</span>
+         <span className="font-black">{`${data?.name}`}</span>
       </div>
-      <EditClient />
+      <EditClient element={data}/>
       </div>
       <Informations data={data}/>
     </div>

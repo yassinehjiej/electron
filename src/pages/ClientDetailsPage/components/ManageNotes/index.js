@@ -1,6 +1,6 @@
 import { Button, Form } from "antd";
 import TextArea from "antd/lib/input/TextArea";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import CustomModal from "../../../../sharedComponets/CustomModal";
 import { getIcon } from "../../../../utils";
 import DateFormatter from "../../../../utils/DateFormatter";
@@ -14,6 +14,7 @@ export default function ManageNotes({notes}){
     const deleteIcon = getIcon('delete');
     const editIcon = getIcon('edit');
     const addIcon = getIcon('add');
+    const inputRef = useRef(null);
 
     const cancelHandler = () => {
         setIsvisible(false);
@@ -22,12 +23,32 @@ export default function ManageNotes({notes}){
         setIsvisible(true);
     }
 
+    const handleClick = () => {
+        setIsInputVisible(true);
+        const timeout = setTimeout(() =>  inputRef?.current.focus({
+            cursor: 'end',
+          }), 200);
+        return () => {
+          clearTimeout(timeout);
+        };
+    }
+    
+
     return(
         <>  
-            <div className="flex justify-start text-sans font-bold text-2xl mt-3 ml-3 mb-8">
+            <div className="flex justify-between text-sans font-bold text-2xl mt-8 ml-4 mb-6">
                 {`Notes`}
+                { (!isInputVisible ) &&
+                        <div className="flex absolute bottom-4 right-7">
+                        <Button className="btn-add-note" onClick={handleClick}>
+                            <addIcon.icon />
+                            {`Ajouter une note`}
+                        </Button>
+                        </div>
+                }
             </div>
             <div className=" w-full flex flex-col justify-center items-center bg-white rounded-2xl px-10 py-5">
+            <Form className="add-note-form" form={form}>
                 {notes.map((note) =>
                     <div className="px-7 flex flex-col w-full justify-between" key={note._id}>
                         <div className="font-bold font-sans text-base leading-6 flex items-center text-gray-500 mb-2 mt-5">
@@ -41,9 +62,14 @@ export default function ManageNotes({notes}){
                         disabled={isReadOnly}
                         className="note-input"
                         />
-                            <div className="flex">
+                            <div className="flex flex-col ml-3 ">
+                                <Button
+                               icon={<editIcon.icon style={{ color: 'white' }}/>} 
+                               onClick={() =>  setIsReadOnly(!isReadOnly)}
+                               className="btn-edit-note "
+                               />
                                 <Button 
-                                icon={ <deleteIcon.icon style={{ color: 'red' }}/>} 
+                                icon={ <deleteIcon.icon style={{ color: 'white' }}/>} 
                                 onClick={openHandler}
                                 className="btn-delete-note"
                                 />
@@ -51,38 +77,33 @@ export default function ManageNotes({notes}){
                         </div>
                     </div> 
                 )}
-                { !isInputVisible &&
-                <div className="flex">
-                <Button className="btn-add-note" onClick={() => setIsInputVisible(true)}>
-                    <addIcon.icon />
-                </Button>
-                </div>
-                }
+    
                 {isInputVisible &&
-                <Form className="add-note-form" form={form}>
-                   <div className="pl-7 leading-6 flex items-center text-gray-500 mb-2 mt-5">
-                        <DateFormatter date={new Date()} className="font-bold font-sans text-base"/>
+                   <>
+                    <div className="pl-7 leading-6 flex items-center text-gray-500 mb-2 mt-5">
+                            <DateFormatter date={new Date()} className="font-bold font-sans text-base" />
+                        </div>
+                        <div className="pl-7 pr-20 ">
+                                <TextArea 
+                                placeholder="Nouveau commentaire" 
+                                autoSize={{ minRows: 3 }} 
+                                className="note-input" 
+                                ref={inputRef}
+                                />
+                        </div>
+                    </>
+                  }
+                    <div className="flex w-full justify-center mt-8 pr-16">
+                            <Button
+                                key="submit"
+                                htmlType="submit"
+                                className="w-40 min-w-min note-form-btn"
+                            >
+                                {`Valider`}
+                            </Button>
+
                     </div>
-                    <div className="pl-7 pr-16 ">
-                        <TextArea showCount placeholder="Nouveau commentaire"  autoSize={{ minRows: 3 }}/>
-                    </div>
-                    <div className="flex w-full justify-end">
-                        <Button
-                        key="submit"
-                        htmlType="submit"
-                        className="w-40 min-w-min mt-3 note-form-btn"
-                        >
-                         {`Ajouter`}
-                        </Button>
-                    </div>
-                </Form>
-                } 
-                <Button
-                icon={<editIcon.icon style={{ color: 'orange' }}/>} 
-                style={{marginRight: 5, marginLeft: 5}} 
-                onClick={() =>  setIsReadOnly(!isReadOnly)}
-                className="btn-edit-note"
-                />
+            </Form>
             </div>
             <CustomModal
             open={isvisible}

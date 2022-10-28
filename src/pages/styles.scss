@@ -1,3 +1,14 @@
+
+.side-menu--shadow {
+  box-shadow: 9px 9px 35px rgba(0, 0, 0, 0.09);
+}
+
+.active {
+  color: #ffffff;
+  background-color: rgba(132, 177, 235, 0.26);
+}
+
+
 .section-container {
   overflow-y: auto;
   text-shadow: 0 0 black;
@@ -23,7 +34,4 @@
     border: 5px solid transparent;
   }
 
-  &:hover {
-    // color: #8c8c8c;
-  }
 }

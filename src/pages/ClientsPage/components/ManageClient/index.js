@@ -6,10 +6,10 @@ import moment from "moment";
 import { addClient, updateClient } from "../../../../service/service";
 import { useDispatch } from "react-redux";
 import { getAllClients } from "../../../../service/service";
+import { getBloodOptions } from "../../../../utils";
 
 export default function ManageClient({ isNew, cancelHandler, elem }) {
   const [form] = Form.useForm();
-  const { Option } = Select;
   const dispatch = useDispatch();
 
   const initialValues = isNew
@@ -64,78 +64,76 @@ export default function ManageClient({ isNew, cancelHandler, elem }) {
   };
 
   return (
-    <div className="overflow-y-scroll h-80 pl-5 pr-2">
+    <div className="overflow-y-scroll h-96 pl-5 pr-2">
       <Form
         form={form}
         layout="vertical"
         className="manage-client"
         initialValues={initialValues}
         onFinish={submit}
-      >
+      > 
+          <Form.Item label="Sex" name="gender" rules={[FormRules.required()]}>
+            <Radio.Group>
+              <Radio value="female">Femme</Radio>
+              <Radio value="male">Homme</Radio>
+            </Radio.Group>
+          </Form.Item>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Form.Item
+            label="Nom"
+            name="lastName"
+            rules={[FormRules.required(), FormRules.name()]}
+          >
+            <Input placeholder="Nom" />
+          </Form.Item>
+          <Form.Item
+            label="Prenom"
+            name="firstName"
+            rules={[FormRules.required(), FormRules.name()]}
+          >
+            <Input placeholder="Prenom" />
+          </Form.Item>
+        </div>
+      <div className="grid grid-cols-3 gap-4">
+          <Form.Item label="CIN" name="cin" rules={[FormRules.required()]}>
+            <Input placeholder="CIN" />
+          </Form.Item>
+          <Form.Item label="Type sanguin" name="blood">
+            <Select placeholder="Type sanguin" options={getBloodOptions}/>
+          </Form.Item>
+          <Form.Item
+            label="Telephone"
+            name="phone"
+            rules={[FormRules.required(), FormRules.numeric()]}
+          >
+            <Input placeholder="Telephone" />
+        </Form.Item>
+      </div>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Form.Item
+            label="Annee de naissance"
+            name="birthday"
+            rules={[FormRules.required()]}
+          >
+            <DatePicker placeholder="Annee de naissance" />
+          </Form.Item>
         <Form.Item
-          label="Nom"
-          name="lastName"
-          rules={[FormRules.required(), FormRules.name()]}
-        >
-          <Input placeholder="Nom" />
+            label="Derniere visite"
+            name="lastVisit"
+            rules={[FormRules.required()]}
+          >
+            <DatePicker placeholder="Derniere visite" />
+          </Form.Item>
+        </div>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Form.Item label="Adresse" name="adress" rules={[FormRules.address()]}>
+            <Input placeholder="Adresse" />
+          </Form.Item>
+          <Form.Item label="Ville" name="city" rules={[FormRules.alphanumeric()]}>
+            <Input placeholder="Ville" />
         </Form.Item>
-        <Form.Item
-          label="Prenom"
-          name="firstName"
-          rules={[FormRules.required(), FormRules.name()]}
-        >
-          <Input placeholder="Prenom" />
-        </Form.Item>
-        <Form.Item label="Sex" name="gender" rules={[FormRules.required()]}>
-          <Radio.Group>
-            <Radio value="female">Femme</Radio>
-            <Radio value="male">Homme</Radio>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item label="CIN" name="cin" rules={[FormRules.required()]}>
-          <Input placeholder="CIN" />
-        </Form.Item>
-        <Form.Item
-          label="Annee de naissance"
-          name="birthday"
-          rules={[FormRules.required()]}
-        >
-          <DatePicker placeholder="Annee de naissance" />
-        </Form.Item>
-        <Form.Item
-          label="Telephone"
-          name="phone"
-          rules={[FormRules.required(), FormRules.numeric()]}
-        >
-          <Input placeholder="Telephone" />
-        </Form.Item>
-        <Form.Item label="Adresse" name="adress" rules={[FormRules.address()]}>
-          <Input placeholder="Adresse" />
-        </Form.Item>
-        <Form.Item label="Ville" name="city" rules={[FormRules.alphanumeric()]}>
-          <Input placeholder="Ville" />
-        </Form.Item>
-        <Form.Item label="Type sanguin" name="blood">
-          <Select placeholder="Type sanguin">
-            <Option value="a-">A-</Option>
-            <Option value="a+">A+</Option>
-            <Option value="b-">B-</Option>
-            <Option value="b+">B+</Option>
-            <Option value="o-">O-</Option>
-            <Option value="o+">O+</Option>
-            <Option value="ab-">AB-</Option>
-            <Option value="ab+">AB+</Option>
-          </Select>
-        </Form.Item>
-        <Form.Item
-          label="Derniere visite"
-          name="lastVisit"
-          rules={[FormRules.required()]}
-        >
-          <DatePicker placeholder="Derniere visite" />
-        </Form.Item>
-
-        <div className="flex justify-end mt-6">
+        </div>
+        <div className="flex justify-center mt-6">
           <Button
             className="w-52 min-w-min mr-2.5 form-btn"
             onClick={cancelHandler}
