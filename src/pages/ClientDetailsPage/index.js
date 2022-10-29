@@ -9,6 +9,7 @@ export default function ClientDetailsPage(){
     const clients = useSelector(state => state.clients)
 
     const data = clients.find(element => element.cin == cin);
+    console.log(data)
     return(
     <div className="w-full px-5 pt-5 pb-1 h-[150vh]">
       <div className="flex justify-between">
