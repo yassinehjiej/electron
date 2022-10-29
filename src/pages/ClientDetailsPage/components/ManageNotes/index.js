@@ -24,8 +24,9 @@ export default function ManageNotes({notes, data}){
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        if(notes.length == 0) {setShowBloc(false)};
+        if(notes.length == 0) {setShowBloc(false); setIsInputVisible(false)};
     },[notes])
+
     const cancelHandler = () => {
         setIsvisible(false);
     }
