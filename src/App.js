@@ -2,7 +2,7 @@ import './App.css';
 import 'antd/dist/antd.min.css';
 import React from 'react';
 import ProtectedApp from './pages';
-import { BrowserRouter , HashRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 
 function App() {

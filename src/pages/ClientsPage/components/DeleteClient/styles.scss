@@ -9,4 +9,9 @@
     &:hover{
         background-color: #0467c4;
     }
+    &:focus{
+        background-color: #001529;
+        border: #001529;
+        color: white;
+    }
 }

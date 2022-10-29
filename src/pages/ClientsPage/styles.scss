@@ -9,6 +9,11 @@
         color: white;
         border: 0px;
     }
+    &:focus{
+    background-color: #001529;
+    border: #001529;
+    color: white;
+    }
     display: flex;
     justify-content: center;
     align-items: center;

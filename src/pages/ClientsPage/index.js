@@ -42,10 +42,6 @@ export default function ClientsPage() {
   const refreshIcon = getIcon("refresh");
   return (
     <div className="w-full p-8">
-      <div className="flex text-sans font-bold text-xl mb-10 ">
-        Docteur Mohamed BAGHOULI
-      </div>
-      
       <div className="flex justify-start text-sans font-black text-3xl mb-8">
         Liste des clients
       </div>

@@ -13,6 +13,11 @@
         border: 0px;
         color: white;
     }
+    &:focus{
+        background-color: green;
+        border-color: green;
+        color: white;
+    }
 }
 
 .btn-edit-note{
@@ -24,6 +29,11 @@
 &:hover{
     border-color: rgb(236, 194, 116);
     background-color: rgb(236, 194, 116);
+}
+&:focus{
+    background-color: orange;
+    border-color: orange;
+    color: white;
 }}
 .btn-delete-note{
     background-color: rgb(190, 2, 2);
@@ -33,6 +43,11 @@
 &:hover{
     border-color: rgb(255, 128, 128);
     background-color: rgb(255, 128, 128);
+}
+&:focus{
+    background-color: rgb(190, 2, 2);
+    border-color: rgb(190, 2, 2);
+    color: white;
 }
 }
 
@@ -49,6 +64,11 @@
         color: white;
         &:hover{
             background-color: #0467c4;
+        }
+        &:focus{
+            background-color: #001529;
+            border-color: #001529;
+            color: white;
         }
         height: 40px;
         border-radius: 7px;

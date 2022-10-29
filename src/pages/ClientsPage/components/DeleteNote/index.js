@@ -8,7 +8,7 @@ export default function DeleteNote({cancelHandler, date, data}){
     const dispatch = useDispatch();
     const onSubmit = () => {
 
-        const description = data.description.filter((element) => element.date != date);
+        const description = data.description.filter((element) => element.date !== date);
 
         const client = {
             firstName: data.name.split(' ')[1],

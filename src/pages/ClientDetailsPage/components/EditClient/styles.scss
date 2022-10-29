@@ -7,4 +7,9 @@
         border-color: rgb(255, 212, 132);
         background-color: rgb(255, 212, 132);
     }
+    &:focus{
+        background-color: orange;
+        border-color: orange;
+        color: white;
+    }
 }

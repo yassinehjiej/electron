@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import EditClient from "./components/EditClient";
 import Informations from "./components/Informations";
 
@@ -9,7 +8,6 @@ export default function ClientDetailsPage(){
     const clients = useSelector(state => state.clients)
 
     const data = clients.find(element => element.cin == cin);
-    console.log(data)
     return(
     <div className="w-full px-5 pt-5 pb-1 h-[150vh]">
       <div className="flex justify-between">

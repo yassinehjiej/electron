@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DateFormatter from "../../../../utils/DateFormatter";
 import male from "../../../../assets/male.png";
 import female from "../../../../assets/female.png";
@@ -16,7 +16,7 @@ const clientInformationEntries = [
     },
     {
       name: 'gender',
-      label: 'Sex',
+      label: 'Sexe',
     },
     {
       name: 'cin',
@@ -58,7 +58,7 @@ function Label({ data }) {
 
   function Info({ data }) {
     return (
-      <p className="mt-1 mr-2 font-normal font-sans text-base leading-6 flex items-center text-gray-500">
+      <p className="mt-1 mr-2 font-normal font-sans text-base text-left leading-6 flex items-center text-gray-500">
         {data}
       </p>
     );

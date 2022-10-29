@@ -72,7 +72,7 @@ export default function ManageClient({ isNew, cancelHandler, elem }) {
         initialValues={initialValues}
         onFinish={submit}
       > 
-          <Form.Item label="Sex" name="gender" rules={[FormRules.required()]}>
+          <Form.Item label="Sexe" name="gender" rules={[FormRules.required()]}>
             <Radio.Group>
               <Radio value="female">Femme</Radio>
               <Radio value="male">Homme</Radio>

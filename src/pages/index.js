@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 
 export default function ProtectedApp() {
     const [auth, setAuth] = useState();
+    const [show, setShow] = useState(false);
     const paths = ['/', '/details'];
     const location = useLocation();
     const dispatch = useDispatch();
@@ -30,9 +31,12 @@ export default function ProtectedApp() {
         <AntLayout>
             <AntLayout.Sider
                 style={{height: '100vh'}}
-                width= '95'
+                width= '210'
+                onCollapse={setShow}
+                collapsible
+                collapsedWidth='95'
                 className="bg-primary side-menu--shadow">
-                    <SideMenu/>
+                    <SideMenu show={!show}/>
             </AntLayout.Sider>
             <AntLayout>
                 <AntLayout.Content style={{height: '100vh' }}>

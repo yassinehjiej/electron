@@ -11,4 +11,9 @@
         border: 0px;
         color: white;
     }
+    &:focus{
+        background-color: green;
+        border-color: green;
+        color: white;
+    }
 }

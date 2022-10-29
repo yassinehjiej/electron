@@ -1,7 +1,7 @@
 import { Button, Form, message } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getAllClients, updateClient } from "../../../../service/service";
 import CustomModal from "../../../../sharedComponets/CustomModal";
 import { getIcon } from "../../../../utils";
@@ -15,7 +15,7 @@ export default function ManageNotes({notes, data}){
     const [isReadOnly, setIsReadOnly] = useState(true);
     const [id, setId] = useState();
     const [thirdContent, setThirdContent] = useState('');
-    const [showBloc, setShowBloc] = useState(notes.length != 0);
+    const [showBloc, setShowBloc] = useState(notes.length !== 0);
     const deleteIcon = getIcon('delete');
     const editIcon = getIcon('edit');
     const addIcon = getIcon('add');
@@ -24,7 +24,7 @@ export default function ManageNotes({notes, data}){
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        if(notes.length == 0) {setShowBloc(false); setIsInputVisible(false)};
+        if(notes.length === 0) {setShowBloc(false); setIsInputVisible(false)};
     },[notes])
 
     const cancelHandler = () => {
@@ -50,7 +50,7 @@ export default function ManageNotes({notes, data}){
         
         if(values) {
             for (const [key, value] of Object.entries(values)) {
-                if(value.length != 0) {
+                if(value.length !== 0) {
                     dataToPublish.push({
                         date:key,
                         content:value
@@ -59,7 +59,7 @@ export default function ManageNotes({notes, data}){
          }
        }
 
-        if(thirdContent.length != 0){ 
+        if(thirdContent.length !== 0){ 
             const tc = {
                 date: new Date(),
                 content: thirdContent
