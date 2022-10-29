@@ -9,18 +9,16 @@ export async function getAllClients() {
 }
 
 export async function addClient(client) {
-  const { firstName, lastName, cin, organizationName, phone, address, city, birthday, gender, blood , lastVisit} = client;
+  const { firstName, lastName, cin, phone, address, city, birthday, gender, blood , lastVisit} = client;
   const response = await axios.post(url, {
     name: lastName + ' ' + firstName,
     cin: cin,
-    organizationName: organizationName,
     phone: phone,
     gender: gender,
     address: address,
     city: city,
     birthday: birthday,
     blood: blood,
-    description: '',
     lastVisit: lastVisit
   });
 
@@ -28,7 +26,7 @@ export async function addClient(client) {
 }
 
 export async function updateClient(client) {
-  const { firstName, lastName, cin, organizationName, phone, address, city, birthday, gender, blood , lastVisit} = client;
+  const { firstName, lastName, cin, organizationName, phone, address, city, birthday, gender, blood , lastVisit, description} = client;
   const response = await axios.put(url, {
     name: lastName + ' ' + firstName,
     cin: cin,
@@ -39,7 +37,7 @@ export async function updateClient(client) {
     city: city,
     birthday: birthday,
     blood: blood,
-    description: '',
+    description: description,
     lastVisit: lastVisit
   });
 

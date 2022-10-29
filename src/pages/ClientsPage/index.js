@@ -9,6 +9,10 @@ import { getAllClients } from "../../service/service";
 
 export default function ClientsPage() {
   const initialState = useSelector(state=>state?.clients);
+  initialState.sort(function(a,b){
+    return new Date(b.lastVisit) - new Date(a.lastVisit);
+  });
+  
   const [d, updateD] = useState(initialState);
   const dispatch =  useDispatch()
 

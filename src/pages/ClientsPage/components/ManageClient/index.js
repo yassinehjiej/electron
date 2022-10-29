@@ -126,7 +126,7 @@ export default function ManageClient({ isNew, cancelHandler, elem }) {
           </Form.Item>
         </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Form.Item label="Adresse" name="adress" rules={[FormRules.address()]}>
+          <Form.Item label="Adresse" name="address" rules={[FormRules.address()]}>
             <Input placeholder="Adresse" />
           </Form.Item>
           <Form.Item label="Ville" name="city" rules={[FormRules.alphanumeric()]}>

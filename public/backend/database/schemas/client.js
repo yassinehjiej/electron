@@ -5,9 +5,12 @@ const clientSchema = mongoose.Schema({
     cin: { type: String, required: true },
     organizationName: { type: String},
     phone: { type: String, required: true },
-    address: { type: String},
+    address: { type: String },
     gender: { type: String, required:true },
-    description: { type: String },
+    description: { type: [{
+        date: Date,
+        content: String
+    }]},
     blood: { type:String },
     city: { type: String },
     createdAt: { type: Date, default: Date.now , required: true},

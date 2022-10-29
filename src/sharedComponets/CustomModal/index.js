@@ -1,9 +1,10 @@
 import React from "react";
 import DeleteClient from "../../pages/ClientsPage/components/DeleteClient";
+import DeleteNote from "../../pages/ClientsPage/components/DeleteNote";
 import ManageClient from "../../pages/ClientsPage/components/ManageClient";
 import GlobalModal from "../GlobalModal";
 
-export default function CustomModal({type, data, onCancel, ...rest}){
+export default function CustomModal({type, data, onCancel, date, ...rest}){
    const Modals = {
         ADD: {
         title:'Ajouter patient',
@@ -21,7 +22,13 @@ export default function CustomModal({type, data, onCancel, ...rest}){
             cancelText:'Non',
             content: <DeleteClient clientCin={data?.cin} cancelHandler={onCancel}/>
             },
-    };
+        DELETENOTE: {
+            title:'Supprimer note',
+            okText:'Oui',
+            cancelText:'Non',
+            content: <DeleteNote data={data} cancelHandler={onCancel} date={date}/>
+            },
+        }
     
     return(
         <GlobalModal 

@@ -7,10 +7,10 @@ export default function reducer(state = [], action) {
             }
         }
 
-    if(action.type === "addDetails") {
+    if(action.type === "addCin") {
         return {
             ...state,
-            details: action.payload.details
+            cin: action.payload.cin
         }
     }
 

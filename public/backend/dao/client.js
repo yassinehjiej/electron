@@ -3,7 +3,7 @@ const Client = require('../database/schemas/client');
 class ClientDao {
     async registerClient (body) {
         const {name, cin, organizationName, phone, address, city, birthday, gender, description, blood, lastVisit} = body;
-        const checkClient = await Client.findOne({cin: cin});console.log(checkClient)
+        const checkClient = await Client.findOne({cin: cin});
         if(checkClient) {throw 'client already exist'}
         const client = new Client({
             name,

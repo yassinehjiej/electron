@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DateFormatter from "../../../../utils/DateFormatter";
 import male from "../../../../assets/male.png";
 import female from "../../../../assets/female.png";
@@ -39,16 +39,8 @@ const clientInformationEntries = [
       label: 'Date de naissance'
     },
     {
-      name: 'organizationName',
-      label: "Titre de l'organisation"
-    },
-    {
     name: 'blood',
     label: 'Type sanguin'
-    },
-    {
-    name: 'updatedAt',
-    label: 'Dernier mise a jour'
     },
     {
     name: 'lastVisit',
@@ -88,22 +80,22 @@ export default function Informations({data}){
         <div className="pt-10 pb-12 w-full flex justify-center items-center bg-white rounded-2xl pl-12 ">
             <div className="pl-2.5 w-full">
                 <dl className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="row-span-1 md:row-span-4 mt-5">
+                    <div className="row-span-1 md:row-span-4 mt-5" >
                         <img
                             className="bg-light-green h-[164px]"
                             src={icons[data?.gender]}
                             alt="Logo" />
                     </div>
-                    {clientInformationEntries.map((el) => (
-                        <div key={el.name} className="col-span-1">
-                            <Label data={el.label}  key={data._id}/>
+                    {clientInformationEntries.map((el) => 
+                        <div key={el.label} className="col-span-1">
+                            <Label data={el.label}  key={data.cin}/>
                             <ShowInfo data={data} label={el.name} />
                         </div>
-                    ))}
+                    )}
                 </dl>
             </div>
         </div>
-        <ManageNotes notes={data.notes} />
+        <ManageNotes notes={data.description} data={data}/>
         </>
 
     );
